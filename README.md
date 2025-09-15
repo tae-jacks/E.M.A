@@ -56,8 +56,7 @@ By correlating **Event ID 4625 (failed)** with **Event ID 4624 (successful)**, S
 # Screenshots
 *(All sensitive details redacted)*
 
-![Failed Logon 
-![Successful Logon  
+![Failed Logon] 
 
 ---
 
