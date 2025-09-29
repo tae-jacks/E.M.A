@@ -57,6 +57,7 @@ By correlating **Event ID 4625 (failed)** with **Event ID 4624 (successful)**, S
 *(All sensitive details redacted)*
 
 ![Failed Logon] 
+<img width="1483" height="834" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/e697cfaa-ba17-4ebf-878b-9df4597e893c" />
 
 ---
 
