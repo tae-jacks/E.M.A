@@ -58,6 +58,7 @@ By correlating **Event ID 4625 (failed)** with **Event ID 4624 (successful)**, S
 
 ![Failed Logon] 
 <img width="1483" height="834" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/e697cfaa-ba17-4ebf-878b-9df4597e893c" />
+<img width="1920" height="1080" alt="splunk table" src="https://github.com/user-attachments/assets/f1f29a4a-eb66-4a3d-95af-58d6a6bbb9d7" />
 
 ---
 
