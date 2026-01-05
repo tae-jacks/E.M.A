@@ -1,0 +1,53 @@
+# 🛡 Event Monitoring Audit (E.M.A)
+
+## Windows Security Log Monitoring – Failed Logon Analysis (Event ID 4625)
+
+---
+
+###  Why I Took On This Project
+I wanted to put myself in the shoes of a SOC analyst and ask:  
+**“What would I do if I saw repeated failed logins on a Windows system?”**
+
+This project is my way of showing how I approach problems — collecting data, analyzing patterns, and thinking critically about whether something is harmless user error or the start of a security incident.
+
+---
+
+###  Tools I Worked With
+- **Windows Event Viewer** → to capture and filter logs  
+- **PowerShell** → to export logs for deeper analysis  
+- **Excel / CSV** → to parse and report on events  
+- **Splunk** → to visualize failed logon attempts and correlate activity  
+- *(Future Work)* ELK Stack integration for broader SIEM coverage  
+
+Each tool played a role in helping me move from raw data to meaningful insights.
+
+---
+
+###  What I Found in the Logs
+- **Event ID:** 4625 (Failed Logon)  
+- **Failure Reason:** Invalid credentials (`0xC000006D`, `0xC0000380`)  
+- **Process:** `svchost.exe` (legitimate, but worth monitoring)  
+- **Source Address:** Redacted for security  
+- **Impact:** Multiple failures in a short timeframe can mean brute-force or password spraying attempts.  
+
+At first glance, these look like simple login mistakes. But when they pile up, they tell a different story.
+
+---
+
+### Splunk Dashboards
+I wanted to go beyond text logs and make the data **visual and easy to interpret**. Splunk helped me build dashboards that highlight suspicious activity.
+
+#### Failed Logon Attempts Over Time
+![Splunk Failed Logon Trend](screenshots/splunk_failed_logon_trend.png)
+
+#### Top Source IPs Generating Failures
+![Splunk Top Source IPs](screenshots/splunk_top_source_ips.png)
+
+#### Account Lockouts
+![Splunk Account Lockouts](screenshots/splunk_account_lockouts.png)
+
+#### Example SPL Query
+```spl
+index=security sourcetype=WinEventLog:Security EventCode=4625
+| stats count by Account_Name, Source_Network_Address
+| sort - count
